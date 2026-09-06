@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Администрирование · УрФУ Квест</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">📊 Администрирование</div>
+    <a style="color:#fff" href="/location/1">← к квесту</a>
+  </header>
+
+  <section class="card">
+    <h2>Обзор</h2>
+    <div class="cards">
+      <div class="stat"><b id="stUsers">…</b><span>участников</span></div>
+      <div class="stat"><b id="stVisits">…</b><span>визитов</span></div>
+      <div class="stat"><b id="stAvg">…</b><span>средний прогресс</span></div>
+    </div>
+    <p class="muted small"><span id="updTime">Загрузка…</span> · автообновление каждые 15 сек.</p>
+    <button class="btn primary" id="btnRefresh">Обновить</button>
+    <div class="err" id="admErr"></div>
+  </section>
+
+  <section class="card" style="margin-top:12px">
+    <h2>Прохождение по локациям</h2>
+    <div id="locBars"></div>
+  </section>
+
+  <section class="card" style="margin-top:12px">
+    <h2>Уверенность в знании кампуса (1–10)</h2>
+    <p class="muted small">Вопрос задаётся после 3, 6 и 10 пройденных локаций.</p>
+    <div id="confBlocks"></div>
+  </section>
+
+  <section class="card" style="margin-top:12px">
+    <h2>Участники</h2>
+    <div style="overflow-x:auto">
+    <table class="tbl">
+      <thead><tr><th>Имя</th><th>Пройдено</th><th>После 3</th><th>После 6</th><th>После 10</th></tr></thead>
+      <tbody id="usersBody"></tbody>
+    </table>
+    </div>
+  </section>
+</div>
+<script src="/js/admin.js"></script>
+</body>
+</html>

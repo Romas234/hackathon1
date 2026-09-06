@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Квест по новому кампусу УрФУ</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">🎓 УрФУ · Новый кампус · Квест</div>
+    <div class="loc-badge" id="locBadge">Локация …</div>
+  </header>
+
+  <!-- Экран 1: регистрация -->
+  <section class="card screen active" id="screen1">
+    <h1>Добро пожаловать!</h1>
+    <p class="muted">Отсканируй QR-коды в 10 локациях кампуса, читай мини-лекции и отвечай на вопросы.</p>
+    <label class="lbl" for="nameInput">Введите имя и фамилию</label>
+    <input id="nameInput" class="inp" type="text" placeholder="Например: Иван Петров" autocomplete="name">
+    <div class="err" id="regErr"></div>
+    <button class="btn primary" id="btnToLecture">Продолжить</button>
+    <p class="hint" id="returnHint"></p>
+  </section>
+
+  <!-- Экран 2: лекция -->
+  <section class="card screen" id="screen2">
+    <div class="photo" id="locPhoto">📍</div>
+    <h2 id="locTitle">Название локации</h2>
+    <p class="info" id="locInfo"></p>
+    <div class="notice hidden" id="alreadyNotice">Ты уже был(а) на этой локации. Квиз недоступен.</div>
+    <button class="btn primary" id="btnToQuiz">Продолжить</button>
+  </section>
+
+  <!-- Экран 3: квиз -->
+  <section class="card screen" id="screen3">
+    <h2>Квиз</h2>
+    <p class="question" id="quizQ"></p>
+    <div class="opts" id="quizOpts"></div>
+    <button class="btn primary hidden" id="btnToProgress">Продолжить</button>
+  </section>
+
+  <!-- Экран 4: прогресс -->
+  <section class="card screen" id="screen4">
+    <h2 id="wellDone">Молодец!</h2>
+    <p class="progress" id="progressText"></p>
+    <div id="confBlock" class="hidden">
+      <p class="conf-q">Оцени свою уверенность в знании нового кампуса от 1 до 10 (1 — абсолютно не уверен(а), 10 — абсолютно уверен(а))</p>
+      <div class="conf-grid" id="confGrid"></div>
+      <p class="thanks hidden" id="confThanks">Спасибо за ответ!</p>
+    </div>
+    <div class="progress-bar"><div id="progressFill"></div></div>
+    <p class="muted small">Покажи этот экран другу — пусть тоже пройдёт квест. Всего локаций: 10.</p>
+  </section>
+</div>
+<script src="/js/app.js"></script>
+</body>
+</html>

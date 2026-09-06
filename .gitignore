@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+
+# SQLite — локальная база квеста (пересоздаётся автоматически)
+data/*.db
+data/*.db-journal
+data/*.bak*
+*.bak
+
+# Сгенерированные QR-коды (перегенерируются под IP сервера)
+frontend/qr_codes/*.png
+
+# Node (задел на будущее, если фронтенд переедет на React/Vue)
+node_modules/
+dist/
+build/
+
+# OS / редакторы
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

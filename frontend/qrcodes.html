@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR-коды локаций · УрФУ Квест</title>
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.qr-card{background:#fff;border-radius:14px;padding:12px;text-align:center;break-inside:avoid}
+.qr-card img{width:100%;max-width:220px}
+.qr-card b{display:block;margin:6px 0 2px}
+.qr-card small{color:#64748b;word-break:break-all}
+@media print{.top,.noprint{display:none}.wrap{max-width:none}.qr-grid{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div class="brand">🎓 QR-коды · 10 локаций</div><a style="color:#fff" href="/location/1">← к квесту</a></header>
+  <div class="card">
+    <p class="muted noprint">Сканирование QR-кода открывает страницу своей локации (<code id="base"></code>). Распечатайте эту страницу и разместите коды по точкам. Если IP сервера изменится — перегенерируйте: <code>python backend/generate_qr.py --host НОВЫЙ_IP --port 8000</code>.</p>
+    <div class="qr-grid" id="grid"></div>
+    <button class="btn primary noprint" onclick="window.print()">Печать</button>
+    <a class="btn ghost noprint" href="/admin.html">📊 Статистика и уверенность участников</a>
+  </div>
+</div>
+<script>
+fetch("/api/locations").then(r=>r.json()).then(locs=>{
+  const base = location.origin;
+  document.getElementById("base").textContent = base + "/location/N";
+  const g = document.getElementById("grid");
+  locs.forEach(l=>{
+    const d = document.createElement("div");
+    d.className = "qr-card";
+    const num = String(l.id).padStart(2,"0");
+    d.innerHTML = `<b>${l.id}. ${l.title}</b><img src="/qr_codes/loc${num}.png" alt="QR ${l.title}"><br><small>${base}/location/${l.id}</small>`;
+    g.appendChild(d);
+  });
+});
+</script>
+</body>
+</html>

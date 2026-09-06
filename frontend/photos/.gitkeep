@@ -1,0 +1,5 @@
+Фото локаций: frontend/photos/locNN.jpg (приоритет, сюда класть реальные фото).
+
+Временно: locNN.svg — автозаглушки (градиент + название), создаются командой
+  python backend/make_placeholders.py
+Экран 2 показывает: .jpg -> .svg -> эмодзи (см. renderPhoto в frontend/js/app.js).
