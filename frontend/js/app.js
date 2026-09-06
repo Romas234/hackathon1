@@ -23,10 +23,8 @@ function show(id) {
   window.scrollTo(0, 0);
 }
 
-const BASE = window.API_BASE || "";
-
 async function api(path, opts = {}) {
-  const r = await fetch(BASE + path, {
+  const r = await fetch(path, {
     headers: { "Content-Type": "application/json" },
     ...opts,
   });
@@ -68,13 +66,13 @@ function renderPhoto() {
     if (img.src.endsWith(".jpg")) {
       // Пробуем SVG-заглушку: сначала с базовым URL, потом без
       const svgSrc = loc.photo.replace(/\.jpg$/, ".svg");
-      if (img.src !== (BASE + svgSrc)) {
-        img.src = BASE + svgSrc;
+      if (img.src !== svgSrc) {
+        img.src = svgSrc;
       }
     }
     // svg тоже нет — остаётся эмодзи
   };
-  img.src = BASE + loc.photo;
+  img.src = loc.photo;
 }
 
 // Задача 2.1: регистрация / вход по full_name

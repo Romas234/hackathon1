@@ -15,9 +15,6 @@ data/*.bak*
 # Сгенерированные QR-коды (перегенерируются под IP сервера)
 frontend/qr_codes/*.png
 
-# Firebase
-.firebase/
-
 # OS / редакторы
 .DS_Store
 Thumbs.db
