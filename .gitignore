@@ -15,10 +15,8 @@ data/*.bak*
 # Сгенерированные QR-коды (перегенерируются под IP сервера)
 frontend/qr_codes/*.png
 
-# Node (задел на будущее, если фронтенд переедет на React/Vue)
-node_modules/
-dist/
-build/
+# Firebase
+.firebase/
 
 # OS / редакторы
 .DS_Store
