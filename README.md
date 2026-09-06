@@ -59,10 +59,7 @@ data/
 
 ## QR-коды
 
-```bash
-pip install -r backend/requirements.txt
-python backend/generate_qr.py
-```
+Двойной клик по 'setup_and_generate.bat'
 
 ## API
 
