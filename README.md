@@ -277,6 +277,56 @@ API админки (без авторизации — только для лок
 4. Прогресс: `X из 10`, прогресс-бар, на 3/6/10 точках — вопрос про уверенность (1–10).
 5. Повторный скан той же точки: «Ты уже был(а)» — квиз пропускается, баллы не дублируются.
 
+## Firebase Hosting (фронтенд в интернете)
+
+Фронтенд деплоится на Firebase Hosting (CDN, HTTPS, домен `*.web.app`).
+Бэкенд работает отдельно на вашем ноутбуке (через Cloudflare Tunnel).
+
+### Настройка
+
+```powershell
+# 1. Установите Firebase CLI (нужен Node.js):
+npm install -g firebase-tools
+
+# 2. Авторизация в Google:
+firebase login
+
+# 3. Создайте проект в Firebase Console:
+#    https://console.firebase.google.com → Add project → скопируйте Project ID
+
+# 4. Укажите Project ID в .firebaserc (замените "" на ваш ID):
+#    "projects": { "default": "ваш-project-id" }
+
+# 5. Укажите URL бэкенда в frontend/config.js:
+#    window.API_BASE = "https://xxx.trycloudflare.com";
+
+# 6. Задеплойте фронтенд:
+firebase deploy
+
+# 7. Откройте: https://<ваш-project-id>.web.app/location/1
+```
+
+### Конфигурация API
+
+`frontend/config.js` — переменная `window.API_BASE`:
+
+| Значение | Когда использовать |
+|----------|-------------------|
+| `""` (пусто) | Локально / LAN (фронтенд и бэкенд на одном домене) |
+| `"https://xxx.trycloudflare.com"` | Фронтенд на Firebase, бэкенд через Cloudflare Tunnel |
+
+### QR-коды для Firebase
+
+```powershell
+python backend/generate_qr.py --base-url https://<ваш-project-id>.web.app
+```
+
+### Важно
+
+- Бэкенд **обязан** быть запущен (`python backend/server.py` + Cloudflare Tunnel).
+- Если ноутбук выключится — фронтенд загрузится, но API не будет отвечать.
+- Бесплатно: Firebase Hosting (10 ГБ/мес) + Cloudflare Tunnel.
+
 ## Git
 
 ```powershell

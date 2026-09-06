@@ -1,16 +1,17 @@
 /* Админка квеста: статистика уверенности (этапы 3/6/10) + общий срез */
 const $ = (id) => document.getElementById(id);
+const BASE = window.API_BASE || "";
 const MILE_TITLES = { 3: "После 3 локаций", 6: "После 6 локаций", 10: "После 10 локаций" };
 
 async function load() {
   $("admErr").textContent = "";
   try {
     const [ov, cf] = await Promise.all([
-      fetch("/api/admin/overview").then((r) => {
+      fetch(BASE + "/api/admin/overview").then((r) => {
         if (!r.ok) throw new Error("overview: " + r.status);
         return r.json();
       }),
-      fetch("/api/admin/confidence").then((r) => {
+      fetch(BASE + "/api/admin/confidence").then((r) => {
         if (!r.ok) throw new Error("confidence: " + r.status);
         return r.json();
       }),
