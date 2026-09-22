@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>УрФУ Кликер · Новый кампус</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">🎓 УрФУ · Кликер Кампуса</div>
+    <a href="/index.html" class="loc-badge" style="text-decoration:none;color:#fff">← Квест</a>
+  </header>
+
+  <!-- Счетчик -->
+  <section class="card" style="text-align:center;padding:16px 18px 14px">
+    <div class="clicker-score" id="score">0</div>
+    <div class="clicker-subtitle">очков кампуса</div>
+    <div class="clicker-stats">
+      <span class="pill" id="statClick">👆 <b>1</b> за клик</span>
+      <span class="pill" id="statAuto">⚡ <b>0</b>/сек</span>
+      <span class="pill" id="statTotal">🎯 <b>0</b> кликов</span>
+    </div>
+    <div class="progress-bar" style="margin:12px 0 0"><div id="levelFill" style="width:14%"></div></div>
+    <div class="clicker-level" id="levelText">Уровень 1 · до следующего 100</div>
+  </section>
+
+  <!-- Кнопка клика -->
+  <section class="card" style="text-align:center;padding:22px 18px;position:relative;overflow:hidden">
+    <div class="clicker-ring"></div>
+    <button class="clicker-btn" id="clickBtn" aria-label="Клик">
+      <span class="clicker-emoji" id="clickEmoji">🏛️</span>
+      <span class="clicker-btn-text">СТРОЙ!</span>
+    </button>
+    <div class="clicker-hint">тапай по корпусу — строй кампус быстрее!</div>
+    <div id="floatLayer" class="float-layer"></div>
+  </section>
+
+  <!-- Магазин -->
+  <section class="card">
+    <h2 style="margin:0 0 4px">Магазин прокачки</h2>
+    <p class="muted small" style="margin:0 0 12px">Улучшай клик и нанимай строителей</p>
+
+    <div class="shop" id="shop">
+      <!-- генерится в JS -->
+    </div>
+
+    <div class="mile" style="margin-top:14px">
+      <h3>🏆 Построить новый корпус — 10 000</h3>
+      <p class="muted small" id="prestigeDesc">Сбросит прогресс, но даст постоянный x2 множитель</p>
+      <button class="btn ghost" id="prestigeBtn" disabled>Построить корпус (0 / 10000)</button>
+    </div>
+
+    <button class="btn ghost" id="resetBtn" style="margin-top:10px;font-size:13px;padding:10px;opacity:.7">Сбросить прогресс</button>
+  </section>
+
+  <p class="hint" style="text-align:center;color:rgba(255,255,255,.75);margin-top:12px">
+    Прогресс сохраняется автоматически · <a href="/admin.html" style="color:#fff">админка</a> · <a href="/qrcodes.html" style="color:#fff">QR-коды</a>
+  </p>
+</div>
+<script src="/js/clicker.js"></script>
+</body>
+</html>

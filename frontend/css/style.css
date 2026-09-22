@@ -59,3 +59,32 @@ h1,h2{margin:0 0 10px}
 .dist{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin:8px 0;align-items:end}
 .dcol{text-align:center;font-size:11px;color:var(--muted)}
 .dcol .db{background:var(--blue);border-radius:4px 4px 0 0;min-height:3px}
+/* Кликер */
+.clicker-score{font-size:42px;font-weight:900;color:var(--blue-d);line-height:1}
+.clicker-subtitle{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.clicker-stats{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.pill{background:#eef4ff;border:1px solid #cbd5e1;border-radius:20px;padding:5px 10px;font-size:13px;color:var(--blue-d)}
+.pill b{font-size:14px}
+.clicker-level{font-size:12px;color:var(--muted);margin-top:6px}
+.clicker-ring{position:absolute;inset:18px;border:2px dashed #cbd5e1;border-radius:22px;opacity:.5;pointer-events:none}
+.clicker-btn{width:190px;height:190px;border-radius:50%;border:0;background:radial-gradient(circle at 30% 30%,#3b82f6,#1e6fff 40%,#0b3d91 75%);box-shadow:0 10px 30px rgba(30,111,255,.45), inset 0 6px 18px rgba(255,255,255,.35);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;margin:10px auto;position:relative;user-select:none;-webkit-tap-highlight-color:transparent;transition:transform .08s}
+.clicker-btn:active{transform:scale(.96)}
+.clicker-btn.pop{animation:pop .18s ease}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(.92)}100%{transform:scale(1)}}
+.clicker-emoji{font-size:64px;line-height:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25))}
+.clicker-btn-text{font-weight:900;font-size:14px;letter-spacing:.12em;margin-top:6px;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+.clicker-hint{font-size:13px;color:var(--muted);margin-top:10px}
+.float-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.float{position:absolute;font-weight:900;font-size:22px;animation:floatUp .7s ease forwards;text-shadow:0 2px 6px rgba(0,0,0,.15)}
+@keyframes floatUp{0%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-70px) scale(1.15)}}
+.shop{display:grid;gap:10px}
+.shop-item{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:10px 12px;transition:border-color .15s}
+.shop-item:not(.disabled):hover{border-color:var(--blue)}
+.shop-item.disabled{opacity:.6}
+.shop-icon{width:44px;height:44px;border-radius:10px;background:#fff;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;font-size:22px}
+.shop-name{font-weight:800;font-size:14.5px}
+.shop-lvl{font-weight:600;color:var(--muted);font-size:12px}
+.shop-desc{font-size:12.5px;color:var(--muted)}
+.shop-buy{padding:10px 14px;border-radius:10px;border:0;background:var(--blue);color:#fff;font-weight:800;cursor:pointer;white-space:nowrap}
+.shop-buy:disabled{background:#cbd5e1;color:#64748b;cursor:default}
+.shop-buy:not(:disabled):hover{background:var(--blue-d)}

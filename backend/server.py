@@ -162,6 +162,10 @@ class Handler(SimpleHTTPRequestHandler):
             self.path = "/index.html"
             return super().do_GET()
 
+        if path in ("/clicker", "/clicker/"):
+            self.path = "/clicker.html"
+            return super().do_GET()
+
         return super().do_GET()
 
     def do_POST(self):
